@@ -1,3 +1,5 @@
+require 'optparse'
+
 module Carbonator
   class CLI
     attr_reader :parser
@@ -7,9 +9,17 @@ module Carbonator
     end
 
     def run
-      ARGF.each_line do |l|
-        data = KV.parse(l)
-        parser.parse(data).each { |x| puts x } 
+      ARGV.options do |o|
+        opts = {}
+        o.banner = 'Usage: carbonator [OPTIONS]'
+	o.set_summary_indent("  ")
+	o.on('-p', '--prefix PREFIX', String, 'path to prefix metrics with') { |p| opts[:prefix] = p }
+        o.parse!
+
+        ARGF.each_line do |l|
+          data = KV.parse(l)
+          parser.parse(data, opts).each { |x| puts x } 
+        end
       end
     end
   end
