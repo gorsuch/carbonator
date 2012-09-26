@@ -1,7 +1,8 @@
 module Carbinator
   class Parser
     def metricname(data, opts)
-      name = data['metricname']
+      metricname_key = opts[:metricname_key] || 'metricname'
+      name = data[metricname_key]
       prefix = opts[:prefix]
       prefix ? "#{prefix}.#{name}" : name
     end

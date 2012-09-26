@@ -16,5 +16,9 @@ describe Carbinator::Parser do
     it 'should prefix the data if asked' do
       parser.parse(simple_data, :prefix => 'test').should eq(["test.foo 1"])
     end
+
+    it 'should use a different value as the metric name if asked' do
+      parser.parse(simple_data.merge('alt' => 'other'), :metricname_key => 'alt').should eq(['other 1'])
+    end
   end
 end
