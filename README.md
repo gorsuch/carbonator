@@ -1,12 +1,12 @@
-# Carbinator
+# Carbonator
 
-Carbinator is a simple toolkit for transforming `key=value` text streams into Carbon compatable inputs.
+Carbonator is a simple toolkit for transforming `key=value` text streams into Carbon compatable inputs.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'carbinator'
+    gem 'carbonator'
 
 And then execute:
 
@@ -14,12 +14,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install carbinator
+    $ gem install carbonator
 
 ## Usage
 
 ```bash
-$ echo base=foo a=1 b=2 c=3 | carbinator 
+$ echo base=foo a=1 b=2 c=3 | carbonator 
 foo.a 1
 foo.b 2
 foo.c 3
