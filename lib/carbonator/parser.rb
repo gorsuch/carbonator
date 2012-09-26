@@ -1,10 +1,10 @@
 module Carbonator
   class Parser
     def metricname(data, k, opts)
-      base_key = opts[:base_key] || 'base'
-      base = data[base_key] || 'carbinator'
+      host_key = opts[:host_key] || 'host'
+      host = data[host_key] || 'carbinator'
 
-      name = [base, k].join('.')
+      name = [host, k].join('.')
 
       prefix = opts[:prefix]
       prefix ? "#{prefix}.#{name}" : name
@@ -15,9 +15,6 @@ module Carbonator
     end
 
     def parse(data, opts={})
-      base_key = opts[:base_key] || 'base'
-      base = data[base_key]
-      
       filter_numeric(data).map do |k,v|
         "#{metricname(data, k, opts)} #{v}"              
       end
