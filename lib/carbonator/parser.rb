@@ -16,7 +16,7 @@ module Carbonator
 
     def parse(data, opts={})
       filter_numeric(data).map do |k,v|
-        "#{metricname(data, k, opts)} #{v}"              
+        "#{metricname(data, k, opts)} #{v} #{Time.now.to_i}"              
       end
     end
   end
