@@ -10,21 +10,31 @@ describe Carbonator::Parser do
     end
 
     it 'should handle a simple dataset' do
-      parser.parse(data).should eq(['foo.http_code 200', 'foo.connect_time 0.2'])
+      Timecop.freeze(Time.now) do
+        expected = ["foo.http_code 200 #{Time.now.to_i}", "foo.connect_time 0.2 #{Time.now.to_i}"]
+        parser.parse(data).should eq(expected)
+      end
     end
 
     it 'should prefix the data if asked' do
-      parser.parse(data, :prefix => 'test').should eq(['test.foo.http_code 200', 'test.foo.connect_time 0.2'])
+      Timecop.freeze(Time.now) do
+        expected = ["test.foo.http_code 200 #{Time.now.to_i}", "test.foo.connect_time 0.2 #{Time.now.to_i}"]
+        parser.parse(data, :prefix => 'test').should eq(expected)
+      end
     end
 
     it 'should use a different base name if asked' do
-      expected = ['other.http_code 200', 'other.connect_time 0.2']
-      parser.parse(data.merge('alt' => 'other'), :host_key => 'alt').should eq(expected)
+      Timecop.freeze(Time.now) do
+        expected = ["other.http_code 200 #{Time.now.to_i}", "other.connect_time 0.2 #{Time.now.to_i}"]
+        parser.parse(data.merge('alt' => 'other'), :host_key => 'alt').should eq(expected)
+      end
     end
 
     it 'substitutes a default base if one is not provided' do
-      expected = ['carbinator.http_code 200']
-      parser.parse({'http_code' => 200}).should eq(expected)
+      Timecop.freeze(Time.now) do
+        expected = ["carbinator.http_code 200 #{Time.now.to_i}"]
+        parser.parse({'http_code' => 200}).should eq(expected)
+      end
     end
   end
 end
