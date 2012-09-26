@@ -21,5 +21,10 @@ describe Carbinator::Parser do
       expected = ['other.http_code 200', 'other.connect_time 0.2']
       parser.parse(data.merge('alt' => 'other'), :base_key => 'alt').should eq(expected)
     end
+
+    it 'substitutes a default base if one is not provided' do
+      expected = ['carbinator.http_code 200']
+      parser.parse({'http_code' => 200}).should eq(expected)
+    end
   end
 end

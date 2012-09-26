@@ -2,7 +2,7 @@ module Carbinator
   class Parser
     def metricname(data, k, opts)
       base_key = opts[:base_key] || 'base'
-      base = data[base_key]
+      base = data[base_key] || 'carbinator'
 
       name = [base, k].join('.')
 
