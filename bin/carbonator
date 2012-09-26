@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'carbinator'
+require 'carbonator'
 
-Carbinator::CLI.new.run
+Carbonator::CLI.new.run
