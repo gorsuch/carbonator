@@ -27,6 +27,15 @@ foo.b 2
 foo.c 3
 ```
 
+You may wish to add a prefix to things.  As an example, you may want to add an API Key for [Hosted Graphite](http://hostedgraphite.com/):
+
+```bash
+$ echo base=foo a=1 b=2 c=3 | carbonator -p some-random-key
+some-random-key.foo.a 1
+some-random-key.foo.b 2
+some-random-key.foo.c 3
+```
+
 ## Contributing
 
 1. Fork it
