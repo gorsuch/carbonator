@@ -1,6 +1,6 @@
 # Carbinator
 
-TODO: Write a gem description
+Carbinator is a simple toolkit for transforming `key=value` text streams into Carbon compatable inputs.
 
 ## Installation
 
@@ -18,7 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+$ echo base=foo bar=25 | carbinator 
+foo.bar 25
+```
 
 ## Contributing
 
