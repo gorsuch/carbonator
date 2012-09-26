@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/gorsuch/carbonator.png)](http://travis-ci.org/gorsuch/carbonator)
 
-Carbonator is a simple toolkit for transforming `key=value` text streams into Carbon compatable inputs.
+Carbonator is an experimental toolkit for transforming `key=value` text streams into Carbon compatable inputs.
 
 ## Installation
 
