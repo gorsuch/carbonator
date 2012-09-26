@@ -19,8 +19,10 @@ Or install it yourself as:
 ## Usage
 
 ```bash
-$ echo base=foo bar=25 | carbinator 
-foo.bar 25
+$ echo base=foo a=1 b=2 c=3 | carbinator 
+foo.a 1
+foo.b 2
+foo.c 3
 ```
 
 ## Contributing
