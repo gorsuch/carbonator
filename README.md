@@ -30,6 +30,7 @@ foo.c 3
 You may wish to add a prefix to things.  As an example, you may want to add an API Key for [Hosted Graphite](http://hostedgraphite.com/):
 
 ```bash
+$ export HOSTED_GRAPHITE_TOKEN=some-random-key
 $ echo host=foo a=1 b=2 c=3 | carbonator -p $HOSTED_GRAPHITE_TOKEN
 some-random-key.foo.a 1
 some-random-key.foo.b 2
