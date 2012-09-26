@@ -12,5 +12,9 @@ describe Carbinator::Parser do
     it 'should handle a simple dataset' do
       parser.parse(simple_data).should eq(["foo 1"])
     end
+
+    it 'should prefix the data if asked' do
+      parser.parse(simple_data, :prefix => 'test').should eq(["test.foo 1"])
+    end
   end
 end
