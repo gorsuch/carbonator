@@ -1,4 +1,4 @@
-module Carbinator
+module Carbonator
   class CLI
     attr_reader :parser
 

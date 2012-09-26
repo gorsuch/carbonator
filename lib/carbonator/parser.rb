@@ -1,4 +1,4 @@
-module Carbinator
+module Carbonator
   class Parser
     def metricname(data, k, opts)
       base_key = opts[:base_key] || 'base'

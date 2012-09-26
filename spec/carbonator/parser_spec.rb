@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Carbinator::Parser do
+describe Carbonator::Parser do
   let(:data) { {'base' => 'foo', 'http_code' => 200, 'connect_time' => 0.2} }
-  let(:parser) { Carbinator::Parser.new }
+  let(:parser) { Carbonator::Parser.new }
 
   describe '#parse' do
     it 'it should return an array' do

@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'carbinator/version'
+require 'carbonator/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "carbinator"
-  gem.version       = Carbinator::VERSION
+  gem.name          = "carbonator"
+  gem.version       = Carbonator::VERSION
   gem.authors       = ["Michael Gorsuch"]
   gem.email         = ["michael.gorsuch@gmail.com"]
   gem.description   = %q{TODO: Write a gem description}
