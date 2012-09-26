@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Carbinator::Parser do
   let(:simple_data) { {'metricname' => 'foo', 'value' => 1 } }
+  let(:complex_data) { {'metricname' => 'foo', 'http_response' => 1, 'connect_time' => 0.2 } }
   let(:parser) { Carbinator::Parser.new }
 
   describe '#parse' do
@@ -19,6 +20,11 @@ describe Carbinator::Parser do
 
     it 'should use a different value as the metric name if asked' do
       parser.parse(simple_data.merge('alt' => 'other'), :metricname_key => 'alt').should eq(['other 1'])
+    end
+
+    it 'should handle complex data' do
+      expected = ['foo.http_response 1', 'foo.connect_time 0.2']
+      parser.parse(complex_data).should eq(expected)
     end
   end
 end
