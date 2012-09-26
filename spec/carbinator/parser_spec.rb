@@ -16,5 +16,10 @@ describe Carbinator::Parser do
     it 'should prefix the data if asked' do
       parser.parse(data, :prefix => 'test').should eq(['test.foo.http_code 200', 'test.foo.connect_time 0.2'])
     end
+
+    it 'should use a different base name if asked' do
+      expected = ['other.http_code 200', 'other.connect_time 0.2']
+      parser.parse(data.merge('alt' => 'other'), :base_key => 'alt').should eq(expected)
+    end
   end
 end
