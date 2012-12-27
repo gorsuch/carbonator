@@ -1,23 +1,28 @@
 module Carbonator
   class Parser
-    def metricname(data, k, opts)
-      host_key = opts[:host_key] || 'host'
-      host = data[host_key] || 'carbinator'
+    attr_accessor :prefix
 
-      name = [host, k].join('.')
-
-      prefix = opts[:prefix]
-      prefix ? "#{prefix}.#{name}" : name
+    def initialize(opts={})
+      self.prefix = opts[:prefix] || 'carbonator'
     end
 
-    def filter_numeric(data)
-      data.select { |k,v| v.kind_of?(Numeric) }
+    def metric(data)
+      prefix ? "#{prefix}.#{data['measure']}" : data['measure']
     end
 
-    def parse(data, opts={})
-      filter_numeric(data).map do |k,v|
-        "#{metricname(data, k, opts)} #{v} #{Time.now.to_i}"              
-      end
+    def parse(data)
+      measurement = metric(data)
+      value       = value(data)
+      timestamp   = timestamp(data)
+      "#{measurement} #{value} #{timestamp}"
+    end
+
+    def timestamp(data)
+      data['timestamp'] || Time.now.to_i  
+    end
+
+    def value(data)
+      data['value']
     end
   end
 end

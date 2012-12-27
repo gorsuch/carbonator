@@ -26,15 +26,15 @@ foo.a 1 1348671182
 
 # keys outside of measure, value or timestamp will be safely ignored
 $ echo app=myapp measure=foo.a value=1 | carbonator
-foo.a 1 1348671186
+carbonator.foo.a 1 1348671186
 ```
 
-You may wish to add a prefix to things.  As an example, you may want to add an API Key for [Hosted Graphite](http://hostedgraphite.com/):
+You may wish to adjust the prefix.  As an example, you may want to add an API Key for [Hosted Graphite](http://hostedgraphite.com/):
 
 ```bash
 $ export HOSTED_GRAPHITE_TOKEN=some-random-key
-$ echo host=foo a=1 b=2 c=3 | carbonator -p $HOSTED_GRAPHITE_TOKEN
-some-random-key.foo.a 1 1348671211
+$ echo host=foo a=1 b=2 c=3 | carbonator -p $HOSTED_GRAPHITE_TOKEN.measurements
+some-random-key.measurements.foo.a 1 1348671211
 some-random-key.foo.b 2 1348671211
 some-random-key.foo.c 3 1348671211
 ```
