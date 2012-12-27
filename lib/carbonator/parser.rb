@@ -11,14 +11,19 @@ module Carbonator
     end
 
     def parse(data)
-      measurement = metric(data)
+      return nil unless measurement?(data)
+      metric = metric(data)
       value       = value(data)
       timestamp   = timestamp(data)
-      "#{measurement} #{value} #{timestamp}"
+      "#{metric} #{value} #{timestamp}"
     end
 
     def timestamp(data)
       data['timestamp'] || Time.now.to_i  
+    end
+
+    def measurement?(data)
+      data.has_key?('measure') && data.has_key?('value')
     end
 
     def value(data)

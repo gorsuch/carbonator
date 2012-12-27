@@ -23,5 +23,9 @@ describe Carbonator::Parser do
         prefixed_parser.parse(data).should eq(expected)
       end
     end
+
+    it 'should return nil if not passed proper data' do
+      prefixed_parser.parse(:a => 1, :b => 2).should be_nil
+    end
   end
 end
