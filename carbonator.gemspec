@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Carbonator::VERSION
   gem.authors       = ["Michael Gorsuch"]
   gem.email         = ["michael.gorsuch@gmail.com"]
-  gem.description   = %q{An experimental toolkit for transforming key=value text streams into Carbon compatable inputs.}
+  gem.description   = %q{Carbonator is an experimental line filter that transforms log lines into graphte / carbon compatable inputs.}
   gem.summary       = gem.description
   gem.homepage      = 'https://github.com/gorsuch/carbonator'
 
