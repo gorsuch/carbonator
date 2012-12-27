@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/gorsuch/carbonator.png)](http://travis-ci.org/gorsuch/carbonator)
 
-Carbonator is an experimental line filter that transforms log lines into Carbon compatable inputs.
+Carbonator is an experimental line filter that transforms log lines into [graphte / carbon](https://graphite.readthedocs.org/en/latest/) compatable inputs.
 
 ## Installation
 
