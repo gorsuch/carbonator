@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/gorsuch/carbonator.png)](http://travis-ci.org/gorsuch/carbonator)
 
-Carbonator is an experimental toolkit for transforming `key=value` text streams into Carbon compatable inputs.
+Carbonator is an experimental line filter that transforms log lines into Carbon compatable inputs.
 
 ## Installation
 
@@ -21,10 +21,12 @@ Or install it yourself as:
 ## Usage
 
 ```bash
-$ echo host=foo a=1 b=2 c=3 | carbonator
+$ echo measure=foo.a value=1 | carbonator
 foo.a 1 1348671182
-foo.b 2 1348671182
-foo.c 3 1348671182
+
+# keys outside of measure, value or timestamp will be safely ignored
+$ echo app=myapp measure=foo.a value=1 | carbonator
+foo.a 1 1348671186
 ```
 
 You may wish to add a prefix to things.  As an example, you may want to add an API Key for [Hosted Graphite](http://hostedgraphite.com/):
