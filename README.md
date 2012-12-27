@@ -43,6 +43,10 @@ And finally, since we're talking about command lines here, you can pipe this dat
 $ echo measure=foo.a value=1 | carbonator -p $HOSTED_GRAPHITE_TOKEN | nc carbon.hostedgraphite.com 2003
 ```
 
+## Credit
+
+Everyone stands on the shoulders of giants.  I borrowed many of these conventions verbatum from [ryandotsmith/l2met](https://github.com/ryandotsmith/l2met).
+
 ## Contributing
 
 1. Fork it
