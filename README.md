@@ -45,7 +45,7 @@ $ echo measure=foo.a value=1 | carbonator -p $HOSTED_GRAPHITE_TOKEN | nc carbon.
 
 ## Credit
 
-Everyone stands on the shoulders of giants.  I borrowed many of these conventions verbatim from [ryandotsmith/l2met](https://github.com/ryandotsmith/l2met).
+Everyone stands on the shoulders of giants.  I borrowed many of these conventions verbatim from [`ryandotsmith/l2met`](https://github.com/ryandotsmith/l2met).
 
 ## Contributing
 
