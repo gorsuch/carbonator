@@ -33,16 +33,14 @@ You may wish to adjust the prefix.  As an example, you may want to add an API Ke
 
 ```bash
 $ export HOSTED_GRAPHITE_TOKEN=some-random-key
-$ echo host=foo a=1 b=2 c=3 | carbonator -p $HOSTED_GRAPHITE_TOKEN.measurements
+$ echo measure=foo.a value=1 | carbonator -p $HOSTED_GRAPHITE_TOKEN.measurements
 some-random-key.measurements.foo.a 1 1348671211
-some-random-key.foo.b 2 1348671211
-some-random-key.foo.c 3 1348671211
 ```
 
 And finally, since we're talking about command lines here, you can pipe this data straight to your Hosted Graphite installation like so:
 
 ```bash
-$ echo host=foo a=1 b=2 c=3 | carbonator -p $HOSTED_GRAPHITE_TOKEN | nc carbon.hostedgraphite.com 2003
+$ echo measure=foo.a value=1 | carbonator -p $HOSTED_GRAPHITE_TOKEN | nc carbon.hostedgraphite.com 2003
 ```
 
 ## Contributing
